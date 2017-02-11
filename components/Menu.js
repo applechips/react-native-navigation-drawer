@@ -11,4 +11,12 @@ class Menu extends Component {
       })
     };
   }
+  // in componentDidMount, we'll set our menu items to the ListView data source
+  componentDidMount() {
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(['Home', 'AnotherComponent'])
+    });
+  }
+
+
 }
