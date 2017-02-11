@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
+  NavigatorIOS,
   Text,
   View
 } from 'react-native';
 import Drawer from 'react-native-drawer';
-import Menu from './components/Menu'
+import Menu from './components/Menu';
 
 export default class NavigationDrawer extends Component {
   render() {
@@ -28,11 +29,15 @@ export default class NavigationDrawer extends Component {
         })}>
 
         {/* Navigator component will be in here, for now we will just add a view: */}
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
-              Welcome to React Native!
-          </Text>
-        </View>
+        <NavigatorIOS
+               ref={(ref) => this._navigator = ref}
+               style={{flex: 1}}
+               initialRoute={{
+                   title: 'Home',
+                   component: Home,
+                   leftButtonIcon: require('./images/menu.png'),
+                   onLeftButtonPress: () => { this._drawer.open() }
+               }}/>
       </Drawer>
     );
   }
