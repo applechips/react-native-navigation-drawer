@@ -6,6 +6,7 @@ import {
   View
 } from 'react-native';
 import Drawer from 'react-native-drawer';
+import Menu from './components/Menu'
 
 export default class NavigationDrawer extends Component {
   render() {
